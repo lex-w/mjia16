@@ -1,0 +1,189 @@
+@import (reference) "jiaConfig.less";
+/************************ SUI custom (375) **************************/
+/**在 iphone6 上使用 1rem = 20px 来换算。小于 375px 的设备上不做缩小处理，对 大于 375px 宽度的设备进行等比缩放。**/
+.bar {
+	background: #ffffff;
+}
+#popupIframe .bar{
+    border-bottom: 1px solid #d9d9d9;
+}
+.bar .button-link{
+	color: #333333;
+}
+.bar .icon {
+	//margin-top: -.3rem;
+}
+.title {
+	color: #333333;
+}
+.button{
+	line-height: 2.15rem;
+	height: 2.15rem;
+	font-size: 16px;
+}
+.button.button-fill{
+	line-height: 2.15rem;
+	.themeBackgroundColor();
+}
+.button.button-fill.active, .button.button-fill:active {
+	background-color: @colord04602;
+	color: @rgbaffffff;
+}
+a {
+	color: @color444444;
+}
+a:active {
+	color: @colorff6600;
+}
+h1 {
+	font-size: 1em;
+	margin: 0.67em 0;
+}
+p {
+	margin: .4em 0;
+}
+.content{
+	overflow-y: auto;
+}
+.content-top{
+	position: absolute;
+	top: 53*2/@fontRemBase;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+.pull-to-refresh-top{
+	position: relative;
+	left: 0;
+	top: 0;
+	height: 2.1rem;
+}
+.tab-height{
+	width: 100%;
+	border-bottom:1px solid @colordddddd;
+	padding: 0 1.95rem;
+	position: absolute;
+	top: 88.5*2/@fontRemBase;
+	left: 0;
+	z-index: 300;
+	.flexbox();
+}
+.tab-button{
+	height: 2.2rem;
+	line-height: 2.2rem;
+	display: inline-block;
+	.flex1();
+	text-align: center;
+}
+.tab-margin{
+	margin: 0 1rem;
+}
+.tab-active{
+	color: @colorff6600;
+	border-bottom: 2px solid @colorff6600;
+}
+.cut-off{
+	margin: 0.75rem 0.75rem 0.25rem;
+	height: 1rem;
+	text-align: center;
+	position: relative;
+	.cut-off-line{
+		width: 100%;
+		display: inline-block;
+		margin: auto;
+		height: 1px;
+		background-color: #ddd;
+	}
+	.cut-off-text{
+		height: 100%;
+		line-height: 1rem;
+		margin: auto;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		>div{
+			height: 100%;
+			line-height: 1rem;
+			display: inline-block;
+			margin: auto;
+			background-color: #f0f0f0;
+			padding: 0 0.25rem;
+		}
+	}
+	>p{
+		width: 4rem;
+		display: inline-block;
+		vertical-align: middle;
+		color: #777;
+	}
+	.cut-off-left{
+		height:1px;
+		border-bottom: 1px solid #dedede;
+	}
+	.cut-off-right{
+		height:1px;
+		border-bottom: 1px solid #dedede;
+	}
+	.look-project{
+		width: 7.5rem;
+	}
+}
+.foot-titp{
+	padding:0.75rem 0;
+	text-align: center;
+	color:#aaa9a9;
+}
+/**************************侧栏区域************/
+.reset,.close-panel{
+    color:@colorff6600;
+}
+.txt-conter{
+    text-align: center;
+}
+.txt-right{
+    text-align: right;
+}
+.project-type{
+    clear: both;
+    margin-top: 60/@fontRemBase;
+    color: #333333;
+}
+.panel{
+button{
+    background: @colorf2f2f2;
+    border: none;
+    height: 1.8rem;
+    color:#666666;
+    text-align: center;
+	}
+}
+.button {
+	border: 1px solid @colorff6600;
+	color: @colorff6600;
+}
+.panel{
+.button:active {
+	color:  @colorff6600;
+	border-color:  @colorff6600;
+}
+}
+.panel{
+.btn-active{
+    border:1px solid @colorff6600;
+    background: @colorffffff;
+    color: @colorff6600
+	}
+}
+.buttons-tab .button.active{
+	color: @colorff6600;
+	border-color: @colorff6600;
+  border-bottom: 1px solid @colorff6600;
+}
+.popup.modal-in{
+	.bar{
+		&:after{
+			height: 0;
+		}
+	}
+}

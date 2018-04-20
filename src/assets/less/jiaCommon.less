@@ -1,0 +1,742 @@
+@import (reference) "jiaConfig.less";
+
+/* 初始化样式 */
+
+html {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-overflow-scrolling: touch;
+    /* 当手指从触摸屏上移开，会保持一段时间的滚动 */
+    -webkit-overflow-scrolling: auto;
+    /* 当手指从触摸屏上移开，滚动会立即停止 */
+}
+
+//清除自带基础样式
+body,
+div,
+span,
+header,
+footer,
+nav,
+section,
+aside,
+article,
+ul,
+dl,
+dt,
+dd,
+li,
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+i,
+b,
+textarea,
+button,
+input,
+select,
+figure,
+figcaption {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-style: normal;
+    text-decoration: none;
+    border: none;
+    font-weight: normal;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    background-color: @colorffffff;
+}
+
+a {
+    text-decoration: none;
+}
+
+//清浮动
+.clearfix {
+    *zoom: 1;
+}
+
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    line-height: 0;
+    content: "";
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    background-color: #F2F2F0;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    background-color: #F2F2F0;
+}
+
+/*定义滑块 内阴影+圆角*/
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #555;
+}
+
+/** tag **/
+
+.tagPublic {
+    .tagFull(@colorffaf60);
+    &:before {
+        content: "供应链"
+    }
+}
+
+.tagPrivite {
+    .tagFull(@color81adff);
+    &:before {
+        content: "小微"
+    }
+}
+
+.tagPubPriFull {
+    background-color: #c6c6c6;
+}
+
+.jia-tag {
+    .borderLine(@colorffa365);
+    color: @colorff6600;
+    background-color: @colorfff4f0;
+    padding: 0 4px;
+    border-radius: 2px;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 9px;
+    line-height: 16px;
+    height: 16px;
+    overflow: hidden;
+}
+
+.jia-tag-full {
+    .borderLine(#d3d3d3);
+    color: @color999999;
+    background-color: white;
+}
+
+.jia-tag.hide {
+    display: none;
+}
+
+.jia-tag.show {
+    display: inline-block;
+}
+
+/** ios滚动补丁 **/
+
+.iosScrollFix {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.iosScrollFix:before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -2px;
+    right: 0;
+    height: 1px;
+    width: 1px;
+    visibility: hidden;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/**
+ 投资定时器
+ */
+
+.timer-clock {
+    >div {
+        text-align: center;
+        width: 1.9*100/@fontRemBase;
+    }
+    >div:nth-child(1) {
+        .flexbox();
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+        height: 0.35*100/@fontRemBase;
+        margin-bottom: .06*100/@fontRemBase;
+    }
+    >div:nth-child(2) {
+        height: 0.5*100/@fontRemBase;
+    }
+}
+
+.timer-clock-icon {
+    background: url(/images/home_time.png) no-repeat;
+    background-size: 100%;
+    background-position: bottom;
+    width: .32*100/@fontRemBase;
+    height: .32*100/@fontRemBase;
+}
+
+.timer-clock-text {
+    color: #ffffff;
+    background-color: @colorff6600;
+    padding: 1px;
+    min-width: 0.8rem;
+}
+
+.timer-clock-tag {
+    .borderLine(@colorff6600);
+    color: @colorff6600;
+    display: block;
+    vertical-align: middle;
+    line-height: .5*100/@fontRemBase;
+    height: 100%;
+}
+
+/* 理财-网贷的跳转页样式*/
+
+.loadingPage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    color: @color333333;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 99999999999999
+}
+
+.loadingPagePic {
+    margin: 0 auto;
+    margin-top: 9.85rem;
+    margin-bottom: 1.875rem;
+    width: 11rem;
+    height: 2.05rem;
+    >img {
+        width: 100%;
+    }
+}
+
+.loadingPageText {
+    text-align: center;
+}
+
+.loadingPageUrl {
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.loadingPageCompany {
+    text-align: center;
+    color: @color999999;
+    margin: 14.175rem auto 0 auto;
+}
+
+/*三角形*/
+
+.triangles {
+    width: 0;
+    height: 0;
+    margin: 0 auto;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #F7F7F7;
+    display: block;
+}
+
+/*SUI样式修改*/
+
+.investFinancing {
+    .panel {
+        width: 16.95rem !important;
+        background: @colorffffff;
+    }
+}
+
+.panel.panel-right.panel-cover {
+    z-index: 6000;
+    right: -16.95rem !important;
+}
+
+.panel .content-block-margin {
+    margin: 0;
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+}
+
+.panel-shadow {
+    background-color: rgb(1, 1, 1);
+    opacity: 0.2;
+}
+
+.panel .row-modify {
+    height: 2.2rem;
+    line-height: 2.2rem;
+    border-bottom: 1px solid #ddd;
+    margin-left: 0;
+    padding: 0 1rem;
+    .flexbox();
+    span {
+        color: #ff6600;
+        height: 100%;
+        line-height: 2.2rem;
+        display: inline-block;
+        .flex1();
+    }
+    span:nth-child(2) {
+        color: @color333333;
+        text-align: center;
+    }
+    span:nth-child(3) {
+        text-align: right;
+    }
+}
+
+body.with-panel-right-cover .panel-right {
+    -webkit-transform: translate3d(-16.95rem, 0, 0) !important;
+    transform: translate3d(-16.95rem, 0, 0) !important;
+}
+
+//在投资时，未绑卡的提示 的模态框样式
+.jia-modal {
+    background-color: white;
+    position: absolute;
+    border-radius: 0.35rem;
+    width: 564/@fontRemBase;
+    z-index: 11000;
+    left: 50%;
+    top: 50%;
+    margin-left: -564/(@fontRemBase*2);
+    .jia-m-header {
+        height: 176/@fontRemBase;
+        width: 100%;
+        border-radius: 0.35rem;
+        background-color: @colorf7f7f7;
+    }
+    .jia-log {
+        margin-top: 40/@fontRemBase;
+        .flexbox();
+        div {
+            .flex1();
+        }
+        img {
+            width: 162/@fontRemBase ;
+            height: 46/@fontRemBase;
+        }
+    }
+    .jia-log-left {
+        border-right: 1px solid #DCE4E4;
+        img {
+            float: right;
+        }
+        padding-right: 27/@fontRemBase;
+    }
+    .jia-log-right {
+        padding-left: 27/@fontRemBase;
+    }
+    .jia-text {
+        text-align: center;
+        color: #a7a7a7;
+        margin-top: 23/@fontRemBase;
+    }
+    .jia-m-body {
+        //height: 433/@fontRemBase;
+        background-color: white;
+        width: 100%;
+        padding: 70/@fontRemBase 40/@fontRemBase 0;
+        p:first-child {
+            color: #474747;
+            word-wrap: break-word;
+        }
+        p:nth-child(2) {
+            color: #B8B8B8;
+            margin-top: 30/@fontRemBase  !important;
+            text-align: center;
+            word-wrap: break-word;
+            .flexbox();
+            .flex-align-center();
+            .flex-justify-content-center();
+            img {
+                width: 0.7rem;
+                margin-right: 0.2rem;
+            }
+        }
+        .jia-m-btn {
+            height: 2rem;
+            width: 100%;
+            line-height: 2rem;
+            text-align: center;
+            color: #A0A0A0;
+        }
+        .jia-btn-later {
+            margin-bottom: 0.3rem;
+        }
+        .jia-btn-active {
+            margin-top: 67/@fontRemBase;
+            border-radius: 2.5rem;
+            background: -ms-linear-gradient(left, #ff8400, #ff6600);
+            /* IE 10 */
+            background: -moz-linear-gradient(left, #ff8400, #ff6600);
+            /*火狐*/
+            background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ff8400), to(#ff6600));
+            /*谷歌*/
+            background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ff8400), to(#ff6600));
+            /* Safari 4-5, Chrome 1-9*/
+            background: -webkit-linear-gradient(left, #ff8400, #ff6600);
+            /*Safari5.1 Chrome 10+*/
+            background: -o-linear-gradient(left, #ff8400, #ff6600);
+            /*Opera 11.10+*/
+            color: white;
+        }
+    }
+}
+
+.jia-modal-mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: 10600;
+    opacity: 0.7;
+}
+
+//未绑卡时 强制用户去绑卡的提示
+.jia-bindCard-modal {
+    font-size: 0;
+    position: absolute;
+    width: 703/@fontRemBase;
+    z-index: 11000;
+    left: 50%;
+    top: 50%;
+    margin-left: -703/(@fontRemBase*2);
+    .jia-bc-img {
+        img {
+            width: 100%;
+            height: 346*2/@fontRemBase;
+        }
+    }
+    .jia-bc-bt {
+        text-align: center;
+        margin: 0 auto;
+        color: white;
+        width: 500/@fontRemBase;
+        height: 85/@fontRemBase;
+        line-height: 85/@fontRemBase;
+        border-radius: 2rem;
+        .backgroundGradient(#ff8400, #ff6600);
+    }
+    .jia-bc-close {
+        margin: 3rem 0 1rem 0;
+        text-align: center;
+        img {
+            width: 1rem;
+        }
+    }
+}
+
+.jia-bindCard-mask {
+    .jia-modal-mask;
+    background: black;
+    opacity: 0.8;
+}
+
+/********************** 屏幕适配 **************************/
+
+//小屏
+@media screen and (max-width:321px) {
+    .front-11 {
+        font-size: 11px
+    }
+    .front-12 {
+        font-size: 12px
+    }
+    .front-13 {
+        font-size: 12px !important;
+    }
+    .front-14 {
+        font-size: 12px
+    }
+    .front-15 {
+        font-size: 13px !important;
+    }
+    .front-16 {
+        font-size: 14px
+    }
+    .front-18 {
+        font-size: 16px
+    }
+    .front-20 {
+        font-size: 18px
+    }
+    .front-22 {
+        font-size: 20px
+    }
+    .front-24 {
+        font-size: 22px
+    }
+    .front-26 {
+        font-size: 24px
+    }
+    .front-28 {
+        font-size: 26px
+    }
+    .front-30 {
+        font-size: 28px
+    }
+    .front-34 {
+        font-size: 32px
+    }
+    .front-35 {
+        font-size: 32px
+    }
+    .front-36 {
+        font-size: 32px
+    }
+    .front-10 {
+        font-size: 10px
+    }
+}
+
+//中屏
+@media screen and (min-width:321px) and (max-width:400px) {
+    .front-11 {
+        font-size: 11px
+    }
+    .front-12 {
+        font-size: 12px
+    }
+    .front-13 {
+        font-size: 13px !important;
+    }
+    .front-14 {
+        font-size: 14px
+    }
+    .front-15 {
+        font-size: 15px !important;
+    }
+    .front-16 {
+        font-size: 16px
+    }
+    .front-18 {
+        font-size: 18px
+    }
+    .front-20 {
+        font-size: 20px
+    }
+    .front-22 {
+        font-size: 22px
+    }
+    .front-24 {
+        font-size: 24px
+    }
+    .front-26 {
+        font-size: 26px
+    }
+    .front-28 {
+        font-size: 28px
+    }
+    .front-30 {
+        font-size: 30px
+    }
+    .front-34 {
+        font-size: 34px
+    }
+    .front-35 {
+        font-size: 35px
+    }
+    .front-36 {
+        font-size: 36px
+    }
+    .front-10 {
+        font-size: 10px
+    }
+}
+
+//大屏
+@media screen and (min-width:400px) {
+    .front-11 {
+        font-size: 13px
+    }
+    .front-12 {
+        font-size: 14px
+    }
+    .front-13 {
+        font-size: 15px !important;
+    }
+    .front-14 {
+        font-size: 16px
+    }
+    .front-15 {
+        font-size: 17px !important
+    }
+    .front-16 {
+        font-size: 18px
+    }
+    .front-18 {
+        font-size: 20px
+    }
+    .front-20 {
+        font-size: 22px
+    }
+    .front-22 {
+        font-size: 24px
+    }
+    .front-24 {
+        font-size: 26px
+    }
+    .front-26 {
+        font-size: 28px
+    }
+    .front-28 {
+        font-size: 30px
+    }
+    .front-30 {
+        font-size: 32px
+    }
+    .front-34 {
+        font-size: 36px
+    }
+    .front-35 {
+        font-size: 37px
+    }
+    .front-36 {
+        font-size: 38px
+    }
+    .front-10 {
+        font-size: 12px
+    }
+}
+
+/*********************************************************/
+
+/* border 1px hack */
+
+@bordercolor: #e7e7e7;
+@border-t: -webkit-gradient(linear, left bottom, left top, color-stop(.5, rgba(0, 0, 0, 0)), color-stop(.5, @bordercolor));
+@border-b: -webkit-gradient(linear, left top, left bottom, color-stop(.5, rgba(0, 0, 0, 0)), color-stop(.5, @bordercolor));
+@border-l: -webkit-gradient(linear, right top, left top, color-stop(.5, rgba(0, 0, 0, 0)), color-stop(.5, @bordercolor));
+@border-r: -webkit-gradient(linear, left top, right top, color-stop(.5, rgba(0, 0, 0, 0)), color-stop(.5, @bordercolor));
+.ui-border-t {
+    border-top: 1px solid @bordercolor;
+}
+
+.ui-border-b {
+    border-bottom: 1px solid @bordercolor
+}
+
+.ui-border-tb {
+    border-top: @bordercolor 1px solid;
+    border-bottom: @bordercolor 1px solid;
+    background-image: none;
+}
+
+.ui-border-l {
+    border-left: 1px solid @bordercolor;
+}
+
+.ui-border-r {
+    border-right: 1px solid @bordercolor;
+}
+
+.ui-border {
+    border: 1px solid @bordercolor;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+    .ui-border {
+        position: relative;
+        border: 0;
+    }
+    .ui-border-t,
+    .ui-border-b,
+    .ui-border-l,
+    .ui-border-r,
+    .ui-border-tb {
+        border: 0;
+    }
+    .ui-border-t {
+        background-position: left top;
+        background-image: @border-t;
+    }
+    .ui-border-b {
+        background-position: left bottom;
+        background-image: @border-b;
+    }
+    .ui-border-t,
+    .ui-border-b,
+    .ui-border-tb {
+        background-repeat: repeat-x;
+        -webkit-background-size: 100% 1px;
+    }
+    .ui-border-tb {
+        background-image: @border-t, @border-b;
+        background-position: top, bottom;
+    }
+    .ui-border-l {
+        background-position: left top;
+        background-image: @border-l;
+    }
+    .ui-border-r {
+        background-position: right top;
+        background-image: @border-r;
+    }
+    .ui-border-l,
+    .ui-border-r {
+        background-repeat: repeat-y;
+        -webkit-background-size: 1px 100%;
+    }
+    .ui-border:after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: @border-t, @border-r, @border-b, @border-l;
+        -webkit-background-size: 100% 1px, 1px 100%, 100% 1px, 1px 100%;
+        background-size: 100% 1px, 1px 100%, 100% 1px, 1px 100%;
+        background-size: 100% 1px, 1px 100%, 100% 1px, 1px 100%;
+        background-repeat: no-repeat;
+        background-position: top, right, bottom, left;
+        padding: 1px;
+        -webkit-box-sizing: border-box;
+        z-index: 10;
+        pointer-events: none;
+    }
+}
+
+/* border 1px hack END */

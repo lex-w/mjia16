@@ -1,0 +1,203 @@
+@import (reference) "jiaConfig.less";
+
+.finance-lists{
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.finance-list-fa{
+    background-color: white;
+    width:100%;
+    margin-top: 0.5rem;
+    padding: 0.75rem; 
+    position: relative;
+    overflow: visible; 
+    .finance-tag{
+        position: absolute;
+        top: -3px;  
+        right: 0.75rem;
+        width: 97/@fontRemBase;
+        height: 82/@fontRemBase;
+        text-align: center;
+        background: url(tag.png);
+        background-size: 100% 100%;
+        color: white;
+        line-height: 200%;
+        z-index: 99;
+    }
+
+    .finance-tag-full{
+        position: absolute;
+        top: -3px;  
+        right: 0.75rem;
+        width: 97/@fontRemBase;
+        height: 82/@fontRemBase;
+        text-align: center;
+        background: url(tagFull.png);
+        background-size: 100% 100%;
+        color: white;
+        line-height: 200%;
+        z-index: 99;
+    }
+    img{
+       float: right;
+       width: 2.3rem;
+       margin-right: 0.375rem;
+    }
+}
+ .finance-list-child{
+    box-sizing: border-box;
+    width:100%;
+        li{
+            position: relative;
+        }
+}
+ .finance-title{
+    height: 18px;
+    span{
+        display: inline-block;
+    }
+    .tag-1{
+        line-height: 15px;
+    }
+    .data-title{
+        color:@color333333;
+        margin-right: 0.25rem;
+        vertical-align: middle;
+
+    }
+}
+.finance-percent{
+    color:@colorff6600;
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
+    .lock-day{
+        color:@color333333;
+        vertical-align: super;
+        i{
+            padding:0 3px;
+        }
+    }
+    .timer-clock{
+        display: inline-block;
+        position: absolute;
+        top:16px;
+        right:0;
+        >div:nth-child(2){
+            display: none;
+        }
+    }
+
+}   
+.finance-num{
+    margin-right: 1.5rem;
+}
+.finance-num-full{
+    color: @color333333;
+} 
+.finance-percent-seize{
+    height:15px;
+    padding-right:2.2rem;
+    line-height: 6px;
+    .finance-percent-fa{
+        height:0.1rem;
+        background-color:#ddd;
+    }
+    .finance-percent-child{
+        height:0.1rem;
+        background: -webkit-linear-gradient(left,#ffc740,#ff9751); /* Safari 5.1 - 6.0 */
+        background: -o-linear-gradient(right,#ffc740,#ff9751); /* Opera 11.1 - 12.0 */
+        background: -moz-linear-gradient(right,#ffc740,#ff9751); /* Firefox 3.6 - 15 */
+        background: linear-gradient(to right, #ffc740,#ff9751); /* 标准的语法 */
+    }
+    span{
+        color: #666;
+        position: absolute;
+        right:0;
+        top:0;
+    }
+   
+}
+.finance-listfootmsg{
+    margin-top: 0.7rem;
+    span{
+        color:#999;
+    }
+    span.finance-msg-right{
+        position: absolute;
+        right:1px;
+    }
+}
+.finance-apart{
+    height: 0;
+    border-bottom: 1px solid rgb(221,221,221,);
+}
+//分割线部分
+.cut-off{
+    margin: 0.75rem 0.75rem 0.25rem;
+    height: 1rem;
+    text-align: center;
+    position: relative;
+    .cut-off-line{
+        width: 100%;
+        height: 1px;
+        background-color: #ddd;
+        position: relative;
+        z-index: 1;
+        top: -1px;
+    }
+    .cut-off-text{
+        position: relative;
+        z-index: 2;
+        background-color: #f0f0f0;
+        padding: 0 0.25rem;
+        top:-0.75rem;
+    }
+    >p{
+        width: 4rem;
+        display: inline-block;
+        vertical-align: middle;
+        color: #777;
+    }
+    .cut-off-left{
+        height:1px;
+        border-bottom: 1px solid #dedede;
+    }
+    .cut-off-right{
+        height:1px;
+        border-bottom: 1px solid #dedede;
+    }
+    .look-project{
+        width: 7.5rem;
+    }
+}
+.foot-titp{
+    padding:0.75rem 0;
+    text-align: center;
+    color:#aaa9a9;
+}
+.finance-line{
+	height: 15px;
+	line-height: 6px;
+	>div{
+		height: 1px;
+		background-color: #ddd;
+	}
+}
+//头部下面的图片jia16.com
+.headerTitp{
+    padding: 0 30/@fontRemBase;
+    padding-bottom: 26/@fontRemBase;
+    background-color: white;
+    >img{
+        width: 122/@fontRemBase;
+        height: 40/@fontRemBase;
+    }
+    >span:nth-child(2){
+        display: inline-block;
+        color: @colorff6600;
+        margin: 0 8/@fontRemBase;
+    }
+    >span:nth-child(3){
+        color: @color999999;
+    }
+}
