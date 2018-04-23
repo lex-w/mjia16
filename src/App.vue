@@ -1,12 +1,16 @@
 <template>
     <div id="app">
         <div class="mcontent">
-            <keep-alive>
-                <router-view v-if="$route.meta.keepAlive" />
-            </keep-alive>
-            <router-view v-if="!$route.meta.keepAlive" />
+            <transition :name="transitionName">
+                <keep-alive>
+                    <router-view class="child-view" v-if="$route.meta.keepAlive" />
+                </keep-alive>
+            </transition>
+            <transition :name="transitionName">
+                <router-view class="child-view" v-if="!$route.meta.keepAlive" />
+            </transition>
         </div>
-        <m-footer v-if="$route.meta.isShow" :bottomTxt="bottomTxt"></m-footer>
+        <m-footer v-if="$route.meta.isShow" :bottomTxt="$route.meta.bottom"></m-footer>
     </div>
 </template>
 
@@ -16,42 +20,54 @@ export default {
     name: "App",
     data() {
         return {
-            bottomTxt: "", // 当前是哪个tab
+            transitionName: 'slide-left'
         }
     },
     components: {
         MFooter
     },
-    beforeCreate() {
-        console.log('beforeCreate')
-    },
-    created() {
-        console.log('created')
-    },
-    beforeMount() {
-        console.log('beforeMount')
-    },
-    mounted() {
-        console.log('mounted')
-    },
-    beforeUpdate() {
-        console.log('beforeUpdate')
-    },
-    updated() {
-        console.log('updated')
-        // this.bottomTxt = this.$route.meta.bottom
-    },
-    activated() {
-        console.log('activated')
-    },
-    deactivated() {
-        console.log('deactivated')
-    },
-    beforeDestroy() {
-        console.log('beforeDestroy')
-    },
-    destroyed() {
-        console.log('destroyed')
+    // beforeCreate() {
+    //     console.log('beforeCreate')
+    // },
+    // created() {
+    //     console.log('created')
+    // },
+    // beforeMount() {
+    //     console.log('beforeMount')
+    // },
+    // mounted() {
+    //     console.log('mounted')
+    // },
+    // beforeUpdate() {
+    //     console.log('beforeUpdate')
+    // },
+    // updated() {
+    //     console.log('updated')
+    //     // this.bottomTxt = this.$route.meta.bottom
+    // },
+    // activated() {
+    //     console.log('activated')
+    // },
+    // deactivated() {
+    //     console.log('deactivated')
+    // },
+    // beforeDestroy() {
+    //     console.log('beforeDestroy')
+    // },
+    // destroyed() {
+    //     console.log('destroyed')
+    // },
+    // 接着在父组件内
+    // watch $route 决定使用哪种过渡
+    watch: {
+        '$route' (to, from) {
+            const toDepth = to.meta.index
+            let fromDepth = 100
+            if(to.meta.index) {
+                fromDepth = from.meta.index
+            }
+            this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+        }
     }
     
 };
@@ -94,4 +110,23 @@ export default {
     overflow-y: auto;
   }
 }
+
+.child-view {  
+  position: absolute;  
+  left: 0;  
+  top: 0;  
+  width: 100%;  
+  height: 100%;  
+  transition: all .5s cubic-bezier(.55,0,.1,1);  
+}  
+.slide-left-enter, .slide-right-leave-active {  
+  opacity: 0;  
+  -webkit-transform: translate(30px, 0);  
+  transform: translate(30px, 0);  
+}  
+.slide-left-leave-active, .slide-right-enter {  
+  opacity: 0;  
+  -webkit-transform: translate(-30px, 0);  
+  transform: translate(-30px, 0);  
+}  
 </style>

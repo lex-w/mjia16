@@ -290,7 +290,6 @@ export default {
     initData() {
         let that = this
         carousel().then(function(result) {
-            console.log(result);
             result.data.forEach(e => {
                 that.topBanner.push({
                     img: e.type,
