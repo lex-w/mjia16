@@ -1,28 +1,32 @@
 <template>
     <div id="app">
         <div class="mcontent">
-            <keep-alive>
-                <router-view v-if="$route.meta.keepAlive" />
-            </keep-alive>
-            <router-view v-if="!$route.meta.keepAlive" />
+            <transition :name="transitionName">
+                <keep-alive>
+                    <router-view class="app-content" v-if="$route.meta.keepAlive" />
+                </keep-alive>
+            </transition>
+            <transition :name="transitionName">
+                <router-view class="app-content" v-if="!$route.meta.keepAlive" />
+            </transition>
         </div>
-        <m-footer v-if="$route.meta.isShow" :bottomTxt="bottomTxt"></m-footer>
+        <m-footer v-if="$route.meta.isShow" :bottomTxt="$route.meta.bottom"></m-footer>
     </div>
 </template>
 
 <script>
-import MFooter from './components/MFooter';
+import MFooter from "./components/MFooter";
 export default {
-    name: "App",
-    data() {
-        return {
-            bottomTxt: "", // 当前是哪个tab
-        }
-    },
-    components: {
-        MFooter
-    },
-    beforeCreate() {
+  name: "App",
+  data() {
+    return {
+      transitionName: "slide-left"
+    };
+  },
+  components: {
+    MFooter
+  },
+  /* beforeCreate() {
         console.log('beforeCreate')
     },
     created() {
@@ -39,7 +43,6 @@ export default {
     },
     updated() {
         console.log('updated')
-        // this.bottomTxt = this.$route.meta.bottom
     },
     activated() {
         console.log('activated')
@@ -52,8 +55,17 @@ export default {
     },
     destroyed() {
         console.log('destroyed')
+    } */
+  watch: {
+    route(to, from) {
+      let toDepth = to.meta.index;
+      let fromDepth = 100;
+      if (from.meta.index) {
+        fromDepth = from.meta.index;
+      }
+      this.transitionName = toDepth > fromDepth ? "slide-left" : "slide-right";
     }
-    
+  }
 };
 </script>
 
@@ -94,4 +106,23 @@ export default {
     overflow-y: auto;
   }
 }
+
+.app-content {  
+    position: absolute;  
+    left: 0;  
+    top: 0;  
+    width: 100%;  
+    height: 100%;  
+    transition: all .5s cubic-bezier(.55,0,.1,1);  
+}  
+.slide-left-enter, .slide-right-leave-active {  
+    opacity: 0;  
+    -webkit-transform: translate(30px, 0);  
+    transform: translate(30px, 0);  
+}  
+.slide-left-leave-active, .slide-right-enter {  
+    opacity: 0;  
+    -webkit-transform: translate(-30px, 0);  
+    transform: translate(-30px, 0);  
+}  
 </style>

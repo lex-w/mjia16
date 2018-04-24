@@ -17,7 +17,8 @@ let routesArray = [{
     meta: {
         name: '精心优选',
         bottom: 'home', // 当前选中的是哪个item
-        isShow: true // 是否显示底部样式
+        isShow: true, // 是否显示底部样式
+        index: 1 // 页面索引值
     },
     component: home
 }, {
@@ -26,7 +27,8 @@ let routesArray = [{
     meta: {
         name: '我要出借',
         bottom: 'investFinancing',
-        isShow: true
+        isShow: true,
+        index: 2
     },
     component: investFinancing
 }]
