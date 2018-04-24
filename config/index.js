@@ -12,11 +12,13 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/ums': {
-        target: 'http://192.168.8.15:28089',
+        // target: 'http://192.168.8.15:28089',
+        target: 'http://www.jia16.com',
         changeOrigin: true
       },
       '/api': {
-        target: 'http://192.168.8.15:28089',
+        // target: 'http://192.168.8.15:28089',
+        target: 'http://www.jia16.com',
         changeOrigin: true
       }
     },

@@ -18,7 +18,7 @@ let routesArray = [{
         name: '精心优选',
         bottom: 'home', // 当前选中的是哪个item
         isShow: true, // 是否显示底部样式
-        index: 1 // 当前页面的一个索引值
+        index: 1 // 页面索引值
     },
     component: home
 }, {

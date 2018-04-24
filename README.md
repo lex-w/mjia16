@@ -1,4 +1,4 @@
-# mjia-vue
+# mjia16
 
 > 嘉石榴—厦门银行存管
 
@@ -24,4 +24,30 @@ npm run e2e
 npm test
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## 文件说明
+├─api                   api请求，ajax封装
+├─assets                公用资源文件
+│  ├─images
+│  │  └─home
+│  └─less
+├─common                公用js，过滤器
+│  ├─js
+│  └─vueFilter
+├─components            公用组件
+├─extend                活动页文件夹
+│  └─demo
+├─page                  正常页文件夹
+│  ├─home
+│  │  └─images
+│  └─investFinancing
+├─router                路由控制（extendArray配置活动页路由）
+└─store                 vuex状态管理
+
+## 命名规范
+
+1. 文件名一律采用驼峰式。如：varDemo;
+2. 全局常量名称一律大小。如：GLOBAL_VAL;
+3. 页面模块文件放到page目录下面；
+4. 可复用组件放到components目录下面；
+5. 框架外的活动页面放到extend下面。
+6. 关于import导入，如果import导入的是Class，则首字母大小，否则小写。
