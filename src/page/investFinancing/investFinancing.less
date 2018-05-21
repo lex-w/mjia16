@@ -1,0 +1,138 @@
+@import url("../../assets/less/jiaConfig");
+.headerTabBgc {
+    background-color: white;
+    position: absolute;
+    z-index: 30;
+    width: 100%;
+}
+
+.headerTab {
+    display: flex;
+    margin: 26/@fontRemBase ((750-190*3)/2)/@fontRemBase;
+    border-radius: 20px;
+    background-color: rgb(247, 247, 247);
+    .headerButton {
+        display: inline-block;
+        width: 190/@fontRemBase;
+        line-height: 54/@fontRemBase;
+        border-radius: 20px;
+        flex: 1;
+        text-align: center;
+        &.active {
+            background-color: #ff6600;
+            color: #fff;
+            transition: all 0.5s ease-in-out;
+            -webkit-transition: all 0.5s ease-in-out;
+        }
+    }
+}
+
+/*选择排序区域*/
+
+.claimsList-sort {
+    width: 100%;
+    height: 2.2rem;
+    .flexbox();
+    background-color: white;
+    position: absolute;
+    top: 53*2/@fontRemBase;
+    z-index: 400;
+    border-bottom: 2px solid @colordddddd;
+    border-top: 1px solid @colordddddd;
+}
+
+.claimsList-sortitem {
+    .flex1();
+    padding: 0.6rem 0;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    color: @color333333;
+}
+
+.claimsList-sortitem-box {
+    line-height: 1rem;
+    border-right: 1px solid @colordddddd;
+}
+
+.claimsList-select {
+    .flex1();
+    padding: 0.6rem 0;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    color: @color333333;
+}
+
+.claimsList-select>.claimsList-sortitem-box {
+    border: none;
+}
+
+#claimsListSortDefault {
+    color: @colorff6600;
+}
+
+.open-panel .claimsList-sortitem-box {
+    border: none;
+}
+
+.claimsList-sort-active {
+    color: @colorff6600;
+}
+
+.claimsList-sort-base {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+}
+
+.claimsList-sort1 {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    vertical-align: initial;
+    border: 1px solid;
+    border-radius: 50%;
+    margin-right: 2px;
+}
+
+.claimsList-sort4 {
+    background-image: url(images/select.png);
+    background-size: 16px 16px;
+}
+
+.claimsList-sort-up {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 8px solid @colordddddd;
+    position: absolute;
+    top: 0;
+}
+
+.claimsList-active-up {
+    border-bottom: 8px solid @colorff6600;
+}
+
+.claimsList-sort-down {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 8px solid @colordddddd;
+    position: absolute;
+    top: 9px;
+}
+
+.claimsList-active-down {
+    border-top: 8px solid @colorff6600;
+}
+
+.claimsList-have-data {
+    text-align: center;
+    font-size: 20px;
+    margin: 1rem;
+}

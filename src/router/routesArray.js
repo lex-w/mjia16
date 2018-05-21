@@ -5,7 +5,7 @@ const investFinancing = r => require.ensure([], () => r(require('../page/investF
     bottom: home  -->  精心优选
     bottom: investFinancing  -->  我要出借
     bottom: accountOverview  -->  我的账户
-*/
+ */
 let routesArray = [{
     path: '/',
     redirect: {
