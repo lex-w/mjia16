@@ -1,3 +1,4 @@
+/* 底部菜单组件 */
 <template>
     <div class="navMenu">
         <router-link to="home" :class="bottomTxt=='home'?'selected':''">
@@ -11,70 +12,70 @@
             </svg>我要出借
         </router-link>
         <router-link to="accountOverview" :class="bottomTxt=='accountOverview'?'selected':''">
-             <svg viewBox="2 -289.57198333740234 295.8219909667969 295.8219909667969">
+            <svg viewBox="2 -289.57198333740234 295.8219909667969 295.8219909667969">
                 <path transform="scale(1,-1)" d="M255.933,68.746h0.003h-23.463v10.634h23.121c3.244,0,5.878,2.111,5.878,5.153c0,3.03-2.634,5.482-5.878,5.482h-20.109l17.157,18.558c1.536,1.698,0.906,4.713-1.416,6.72c-2.325,2.007-5.462,2.275-7.009,0.577l-17.209-19.333l-17.55,19.333c-1.55,1.698-4.689,1.43-7.008-0.577c-2.326-2.007-2.957-5.022-1.413-6.72l17.151-18.558h-15.403c-3.244,0-5.879-2.452-5.879-5.482c0-3.039,2.635-5.153,5.879-5.153h18.769V68.746h-18.769c-3.244,0-5.879-2.465-5.879-5.494c0-3.027,2.635-5.15,5.879-5.15h18.769V43.416c0-2.56,2.183-4.642,5.284-4.642c3.113,0,5.635,2.082,5.635,4.642v14.686h23.46c3.247,0,5.539,2.12,5.539,5.15C261.472,66.281,259.18,68.746,255.933,68.746L255.933,68.746z M227.274,151.066c38.967,0,70.548-30.808,70.548-68.8c0-37.991-31.581-68.799-70.548-68.799s-70.557,30.808-70.557,68.799C156.718,120.258,188.308,151.066,227.274,151.066L227.274,151.066z M136.189,80.375L136.189,80.375c0-26.542,11.858-50.376,30.67-66.772H2c7.249,55.984,49.744,101.838,104.75,115.21c-26.183,11.625-44.425,37.296-44.425,67.189c0,40.786,33.915,73.853,75.748,73.853s75.735-33.066,75.735-73.853c0-9.999-2.045-19.52-5.738-28.217C166.946,158.902,136.189,123.152,136.189,80.375L136.189,80.375z"></path>
             </svg>我的账户
         </router-link>
     </div>
 </template>
 <script>
-    export default {
-        data() {
-            return {}
-        },
-        props: {
-            bottomTxt: String
-        },
-        computed: {}
-    }
+export default {
+  data() {
+    return {};
+  },
+  props: {
+    bottomTxt: String
+  },
+  computed: {}
+};
 </script>
 <style lang="less">
-.flexbox(@vertical){
-    .vertical(@vertical) when(@vertical = 1){
-        -webkit-box-orient: vertical;
-        -ms-flex-direction: column;
-        -webkit-flex-direction: column;
-        flex-direction: column;
-    }
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    .vertical(@vertical)
+.flexbox(@vertical) {
+  .vertical(@vertical) when(@vertical = 1) {
+    -webkit-box-orient: vertical;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  .vertical(@vertical);
 }
-.flexcontent(@flexable){
-    -webkit-box-flex: @flexable;
-    -ms-flex: @flexable @flexable auto;
-    -webkit-flex: @flexable @flexable auto;
-    flex: @flexable @flexable auto;
+.flexcontent(@flexable) {
+  -webkit-box-flex: @flexable;
+  -ms-flex: @flexable @flexable auto;
+  -webkit-flex: @flexable @flexable auto;
+  flex: @flexable @flexable auto;
 }
 .navMenu {
-    height: 49px;
-    background-color: #f9f9f9;
-    position: relative;
-    border-top: 1px solid #e7e9ed;
-    .flexbox(0);
-    .flexcontent(0);
-    > a {
-        display: block;
-        height: 100%;
-        width: 100%;
-        text-align: center;
-        color: #666;
-        font-size: 12px;
-        .flexcontent(1);
-        > svg {
-            display: block;
-            height: 20px;
-            margin: 5px auto;
-            fill: #b7b7b7;
-        }
-        &.selected {
-            color: #ff5c0c;
-            > svg {
-                fill: #ff5c0c;
-            }
-        }
+  height: 49px;
+  background-color: #f9f9f9;
+  position: relative;
+  border-top: 1px solid #e7e9ed;
+  .flexbox(0);
+  .flexcontent(0);
+  > a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    color: #666;
+    font-size: 12px;
+    .flexcontent(1);
+    > svg {
+      display: block;
+      height: 20px;
+      margin: 5px auto;
+      fill: #b7b7b7;
     }
+    &.selected {
+      color: #ff5c0c;
+      > svg {
+        fill: #ff5c0c;
+      }
+    }
+  }
 }
 </style>

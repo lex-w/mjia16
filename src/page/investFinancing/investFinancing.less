@@ -3,10 +3,10 @@
     background-color: white;
     width: 100%;
     height: 2.6rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10;
+    float: left; // position: absolute;
+    // top: 0;
+    // left: 0;
+    // z-index: 10;
 }
 
 .headerTab {
@@ -33,10 +33,10 @@
 /*选择排序区域*/
 
 .claimsList-sort {
-    position: absolute;
-    top: 2.6rem;
-    left: 0;
-    z-index: 10;
+    // position: absolute;
+    // top: 2.6rem;
+    // left: 0;
+    // z-index: 10;
     width: 100%;
     height: 2.2rem;
     .flexbox();
@@ -142,5 +142,115 @@
 }
 
 .mescroll {
-    padding-top: 4.8rem;
+    position: fixed;
+    top: 4.8rem;
+    bottom: 49px;
+    height: auto;
+}
+
+.finance-lists {
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.finance-tag {
+    position: absolute;
+    top: -3px;
+    right: 0.75rem;
+    width: 97 / @fontRemBase;
+    height: 82 / @fontRemBase;
+    text-align: center;
+    background: url(./images/tag.png);
+    background-size: 100% 100%;
+    color: white;
+    line-height: 200%;
+    z-index: 99;
+}
+
+.finance-tag-full {
+    position: absolute;
+    top: -3px;
+    right: 0.75rem;
+    width: 97 / @fontRemBase;
+    height: 82 / @fontRemBase;
+    text-align: center;
+    background: url(./images/tagFull.png);
+    background-size: 100% 100%;
+    color: white;
+    line-height: 200%;
+    z-index: 99;
+}
+
+//分割线部分
+.cut-off {
+    margin: 0.75rem 0.75rem 0.5rem;
+    height: 1rem;
+    text-align: center;
+    position: relative;
+    .cut-off-line {
+        width: 100%;
+        height: 1px;
+        background-color: #ddd;
+        position: relative;
+        z-index: 1;
+        top: -1px;
+    }
+    .cut-off-text {
+        position: relative;
+        z-index: 2;
+        background-color: #f0f0f0;
+        padding: 0 0.25rem;
+        top: -0.75rem;
+    }
+    >p {
+        width: 4rem;
+        display: inline-block;
+        vertical-align: middle;
+        color: #777;
+    }
+    .cut-off-left {
+        height: 1px;
+        border-bottom: 1px solid #dedede;
+    }
+    .cut-off-right {
+        height: 1px;
+        border-bottom: 1px solid #dedede;
+    }
+    .look-project {
+        width: 7.5rem;
+    }
+}
+
+.foot-titp {
+    padding: 0.75rem 0;
+    text-align: center;
+    color: #aaa9a9;
+}
+
+.finance-line {
+    height: 15px;
+    line-height: 6px;
+    >div {
+        height: 1px;
+        background-color: #ddd;
+    }
+}
+
+//头部下面的图片jia16.com
+.headerTitp {
+    padding: 0 30 / @fontRemBase;
+    padding-bottom: 26 / @fontRemBase;
+    background-color: white;
+    >img {
+        width: 122 / @fontRemBase;
+        height: 40 / @fontRemBase;
+    }
+    >span:nth-child(2) {
+        display: inline-block;
+        color: @colorff6600;
+        margin: 0 8 / @fontRemBase;
+    }
+    >span:nth-child(3) {
+        color: @color999999;
+    }
 }
