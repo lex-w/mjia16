@@ -1,20 +1,14 @@
 @import url("../../assets/less/jiaConfig");
 /** 框架 **/
-
-.home {
-    >.header {
-        .themeBackgroundColor();
-        display: none;
-        >.title {
-            display: none;
-        }
-    }
+.colorRed {
+    color: @colorff6600;
 }
-
-.content .home {
-    overflow: auto;
+.color333 {
+    color: @color333333;
 }
-
+.color999 {
+    color: @color999999;
+}
 /** banner **/
 
 .home-banner {
@@ -24,67 +18,49 @@
 }
 
 /** head **/
-
 .home-header {
-    height: 1.04*100/@fontRemBase;
+    padding: 10px 0;
     .flexbox();
-    background-color: @colorffffff;
     >div {
-        width: 33.33333%;
+        flex: 1;
         text-align: center;
-        margin: auto 0;
-        padding: 0 0.3*100/@fontRemBase;
+        color: @color333333;
+        span {
+            color: @color999999;
+        }
     }
-}
-
-.home-header-val {
-    display: block;
-    color: @color333333;
-}
-
-.home-header-name {
-    display: block;
-    color: @color999999;
-    margin-top: 0.04*100/@fontRemBase;
-}
-
-.home-header-splitline {
-    border-right: 1px solid #F0F0F0;
 }
 
 /** topnav **/
 
 .home-topnav {
-    margin-top: 0.2*100/@fontRemBase;
-    height: 1.5*100/@fontRemBase;
+    height: 150/@fontRemBase;
     font-size: 14px;
     .flexbox();
-    background-color: @colorffffff;
-    padding: 0 0.08*100/@fontRemBase;
-    >div {
+    >.nav-item {
         margin: auto .2*100/@fontRemBase;
         width: 25%;
         text-align: center;
     }
-    >div i {
+    >.nav-item i {
         display: block;
-        height: 0.54*100/@fontRemBase;
-        width: 0.54*100/@fontRemBase;
+        height: 54/@fontRemBase;
+        width: 54/@fontRemBase;
         margin: 0 auto;
     }
-    >div:nth-child(1) i {
+    .one {
         background: url(./images/icon1-re.png) no-repeat;
         background-size: 100%;
     }
-    >div:nth-child(2) i {
+    .two {
         background: url(./images/icon2-inv.png) no-repeat;
         background-size: 100%;
     }
-    >div:nth-child(3) i {
+    .three {
         background: url(./images/infoIcon.png) no-repeat;
         background-size: 100%;
     }
-    >div:nth-child(4) i {
+    .four {
         background: url(./images/inon4-sec.png) no-repeat;
         background-size: 100%;
     }
@@ -110,14 +86,14 @@
 /** 新手标 **/
 
 .home-newobj {
-    margin-top: 0.2*100/@fontRemBase;
-    height: 5.8*100/@fontRemBase;
+    margin-top: 20/@fontRemBase;
+    height: 580/@fontRemBase;
     background-color: @colorffffff;
     position: relative;
     overflow: visible;
 }
 
-.home-tag {
+.home-tag, .home-full-tag {
     position: absolute;
     top: -3px;
     right: 0.75rem;
@@ -125,29 +101,23 @@
     line-height: 200%;
     color: white;
     width: 97/@fontRemBase;
-    height: 82/@fontRemBase;
-    background: url(./images/tag.png);
-    background-size: 100%;
     z-index: 99;
 }
 
+.home-tag {
+    height: 80/@fontRemBase;
+    background: url(./images/tag.png);
+    background-size: 100%;
+}
 .home-full-tag {
-    position: absolute;
-    top: -3px;
-    right: 0.75rem;
-    text-align: center;
-    line-height: 200%;
-    color: white;
-    width: 97/@fontRemBase;
-    height: 82/@fontRemBase;
+    height: 75/@fontRemBase;
     background: url(./images/tagFull.png);
     background-size: 100%;
-    z-index: 99;
 }
 
 .home-newobj-titel {
-    height: .9*100/@fontRemBase;
-    line-height: .9*100/@fontRemBase;
+    height: 90/@fontRemBase;
+    line-height: 90/@fontRemBase;
     color: @color333333;
     font-size: 15px;
     text-align: center;
@@ -164,9 +134,6 @@
 
 .home-newobj-yield {
     text-align: center;
-    >span {
-        display: block;
-    }
 }
 
 .home-newobj-yield-val {
@@ -175,38 +142,21 @@
     letter-spacing: 5px; //font-weight: 600;
 }
 
-.home-newobj-yield-name {
-    color: @color999999; //margin-top: .1*100/@fontRemBase;
-}
-
 .home-newobj-summary {
     margin-top: 0.46*100/@fontRemBase;
+    .flexbox();
     >div {
-        .flexbox();
-    }
-    >div div {
         width: 33.333333%;
         text-align: center;
     }
-    >div div span {
-        display: block;
+    .color999 {
+        margin-top: .05*100/@fontRemBase;
     }
 }
 
-.home-newobj-summary-val {
-    color: @color333333;
-}
-
-.home-newobj-summary-name {
-    margin-top: .05*100/@fontRemBase;
-    color: @color999999;
-}
-
 .home-newobj-btn {
-    //height: .86*100/@fontRemBase;
     padding: .3*100/@fontRemBase .4*100/@fontRemBase;
     .button {
-        // border: 1px solid #0894ec;
         border: none;
         color: #fff;
         text-decoration: none;
@@ -232,213 +182,99 @@
 }
 
 /** 优选理财 **/
-.home-money {
-    margin-top: .2*100/@fontRemBase;
-    background-color: @colorffffff;
-}
-.home-money-title {
-    height: .9*100/@fontRemBase;
-    line-height: .9*100/@fontRemBase;
-    color: @color333333;
-    font-size: 15px;
-    text-align: left;
-    vertical-align: middle; //font-weight: 600;
-    padding-left: .3*100/@fontRemBase;
-    .splitBorderBottomLine();
-    >i {
-        height: .32*100/@fontRemBase;
-        width: .32*100/@fontRemBase;
-        background: url(./images/icon-yxlc.png) no-repeat;
-        background-size: 100%;
-        display: inline-block;
-        vertical-align: middle;
-    }
-    >span {
-        margin-left: 5px;
-        vertical-align: middle;
-    }
-}
-.home-money-obj {
-    padding: .4*100/@fontRemBase 0;
-    font-size: 14px;
-    margin-left: .3*100/@fontRemBase;
-    position: relative;
-    overflow: visible;
-    .splitBorderBottomLine();
-}
-.home-money-obj-title {
-    color: @color333333;
-}
-.home-money-obj-yield {
-    .flexbox();
-    -webkit-align-items: flex-end;
-    align-items: flex-end;
-    padding-top: .5*100/@fontRemBase;
-    >div:nth-child(1) {
-        width: 33%;
-    }
-    >div:nth-child(2) {
-        width: 33%;
-        padding-left: .4*100/@fontRemBase;
-    }
-    >div:nth-child(3) {
-        width: 34%;
-    }
-}
-.home-money-obj-yield-val {
-    color: @colorff6600;
-}
-.home-money-obj-yield-name {
-    margin-top: .2*100/@fontRemBase;
-    color: @color999999;
-    display: block;
-}
-.home-money-obj-yield-percent {
-    color: @colorff6600;
-}
-.home-money-obj-yield-day,
-.home-money-obj-yield-unit {
-    color: @color333333;
-}
-.home-money-obj-yield-progress {
-    text-align: center; //margin-top: -.05rem;
-}
-.home-money-obj-timer {
-    >div {
-        text-align: center;
-        width: 1.9*100/@fontRemBase;
-    }
-    >div:nth-child(1) {
-        .flexbox();
-        -webkit-justify-content: space-between;
-        justify-content: space-between;
-        height: 0.35*100/@fontRemBase;
-        margin-bottom: .06*100/@fontRemBase;
-    }
-    >div:nth-child(2) {
-        height: 0.5*100/@fontRemBase;
-    }
-}
-.home-money-obj-timer-icon {
-    background: url(./images/home_time.png) no-repeat;
-    background-size: 100%;
-    background-position: bottom;
-    width: .32*100/@fontRemBase;
-    height: .32*100/@fontRemBase;
-}
-.home-money-obj-timer-clock {
-    color: #ffffff;
-    background-color: @colorff6600;
-    padding: 1px;
-    min-width: 0.8rem;
-}
-.home-money-obj-timer-tag {
-    .borderLine(@colorff6600);
-    color: @colorff6600;
-    display: block;
-    vertical-align: middle;
-    line-height: .5*100/@fontRemBase;
-    height: 100%;
-}
 /** 精心推荐 **/
 .home-recommend {
     margin-top: .2*100/@fontRemBase;
     background-color: @colorffffff;
-}
-.home-recommend-title {
-    height: .9*100/@fontRemBase;
-    line-height: .9*100/@fontRemBase;
-    color: @color333333;
-    font-size: 15px;
-    text-align: left;
-    vertical-align: middle; //font-weight: 600;
-    padding-left: .3*100/@fontRemBase;
-    .splitBorderBottomLine();
-    >i {
-        height: .32*100/@fontRemBase;
-        width: .32*100/@fontRemBase;
-        background: url(./images/icon-jxyx.png) no-repeat;
-        background-size: 100%;
-        display: inline-block;
+    .home-recommend-title {
+        height: .9*100/@fontRemBase;
+        line-height: .9*100/@fontRemBase;
+        color: @color333333;
+        font-size: 15px;
+        text-align: left;
+        vertical-align: middle; //font-weight: 600;
+        padding-left: .3*100/@fontRemBase;
+        .splitBorderBottomLine();
+        >i {
+            height: .32*100/@fontRemBase;
+            width: .32*100/@fontRemBase;
+            background: url(./images/icon-jxyx.png) no-repeat;
+            background-size: 100%;
+            display: inline-block;
+            vertical-align: middle;
+            &.zan {
+                background: url(./images/icon-yxlc.png) no-repeat;
+                background-size: 100%;
+            }
+        }
+        >span {
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+    }
+    .home-recommend-obj {
+        padding: .4*100/@fontRemBase 0;
+        font-size: 14px;
+        margin-left: .3*100/@fontRemBase;
+        position: relative;
+        overflow: visible;
+        .splitBorderBottomLine();
+    }
+    .home-recommend-obj-title {
         vertical-align: middle;
+        color: @color333333;
     }
-    >span {
-        margin-left: 5px;
-        vertical-align: middle;
+    .home-recommend-obj-yield {
+        .flexbox();
+        padding-top: .5*100/@fontRemBase;
+        >div {
+            flex: 1;
+        }
+        >div:nth-child(2) {
+            padding-left: .4*100/@fontRemBase;
+        }
     }
-}
-.home-recommend-obj {
-    padding: .4*100/@fontRemBase 0;
-    font-size: 14px;
-    margin-left: .3*100/@fontRemBase;
-    position: relative;
-    overflow: visible;
-    .splitBorderBottomLine();
-}
-.home-recommend-obj-title {
-    vertical-align: middle;
-    color: @color333333;
-}
-.home-recommend-obj-yield {
-    .flexbox();
-    padding-top: .5*100/@fontRemBase;
-    >div:nth-child(1) {
-        width: 33%;
+    .yield-name {
+        margin-top: .2*100/@fontRemBase;
+        color: @color999999;
+        display: block;
     }
-    >div:nth-child(2) {
-        width: 33%;
-        padding-left: .4*100/@fontRemBase;
+    .yield-progress {
+        text-align: center;
+        margin-top: -.05*100/@fontRemBase
     }
-    >div:nth-child(3) {
-        width: 34%;
+    .yield-progress-full {
+        text-align: center;
+        margin-top: -.05rem;
+        background: url(./images/full_object.png) no-repeat center;
+        background-size: 55px 50px;
     }
+
+    .circel-section {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto;
+    }
+    
 }
-.home-recommend-obj-yield-val {
-    color: @colorff6600;
-}
-.home-recommend-obj-yield-name {
-    margin-top: .2*100/@fontRemBase;
-    color: @color999999;
-    display: block;
-}
-.home-recommend-obj-yield-percent {
-    color: @colorff6600;
-}
-.home-recommend-obj-yield-progress {
-    text-align: center;
-    margin-top: -.05*100/@fontRemBase
-}
-.home-recommend-obj-yield-progress-full {
-    text-align: center;
-    margin-top: -.05rem;
-    background: url(./images/full_object.png) no-repeat center;
-    background-size: 55px 50px;
-}
-.home-recommend-obj-yield-day,
-.home-recommend-obj-yield-unit {
-    color: @color333333;
-}
+
 // home-special
 .home-special {
-    margin-top: .2*100/@fontRemBase;
+    margin-top: 10px;
     background-color: @colorffffff;
     .home-catalogue {
-        width: 100%;
         padding: 0.8rem;
-        overflow: hidden;
-        img:nth-child(1) {
+        display: flex;
+        justify-content: space-between;
+        img{
             width: 8rem;
-            float: left;
-        }
-        img:nth-child(2) {
-            width: 8rem;
-            float: right;
+            height: 5.34rem;
         }
     }
 }
 /** foot **/
 .home-footer {
-    padding: .3*100/@fontRemBase;
+    padding: 30/@fontRemBase;
     text-align: center;
     background: #f0f0f0;
 }
@@ -448,6 +284,8 @@
         background-size: 100%;
         display: inline-block;
         vertical-align: middle;
+        width: 13px;
+        height: 13px;
     }
     >span {
         color: rgb(119, 139, 153);
@@ -475,107 +313,9 @@
         padding: 0 .1*100/@fontRemBase;
     }
 }
-.anniversary_cont {
-    background: none;
-    i {
-        display: block;
-        background: url(images/close.png) no-repeat center;
-        background-size: 100%;
-        width: .48*100/@fontRemBase;
-        height: .48*100/@fontRemBase;
-        ;
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
-}
-/** 屏幕适配 **/
-//小屏
-@media screen and (max-width:321px) {
-    .home-footer-safe>i {
-        width: 12px;
-        height: 12px;
-    }
-    .home-money-title>i,
-    .home-recommend-title>i {
-        width: 14px;
-        height: 14px;
-    }
-    .home-money-obj-title,
-    .home-recommend-obj-title {
-        font-size: 16px
-    }
-    .home-header-name {
-        font-size: 10px
-    }
-}
-//中屏
-@media screen and (min-width:321px) and (max-width:400px) {
-    .home-footer-safe>i {
-        width: 12px;
-        height: 12px;
-    }
-    .home-money-title>i,
-    .home-recommend-title>i {
-        width: 16px;
-        height: 16px;
-    }
-}
-//大屏
-@media screen and (min-width:400px) {
-    .home-footer-safe>i {
-        width: 14px;
-        height: 14px;
-    }
-    .home-money-title>i,
-    .home-recommend-title>i {
-        width: 18px;
-        height: 18px;
-    } //.home-money-obj-timer-icon{
-    //	width: 14px;
-    //	height: 14px;
-    //	line-height: 14px;
-    //}
-}
+
+
 #newUser_reward {
-    margin-top: .2*100/@fontRemBase;
-    background-color: @colorffffff;
-}
-.home-huitou-btn {
-    width: 13.5rem;
-    height: 2.25rem;
-    line-height: 2.25rem;
-    text-align: center;
-    background: -webkit-linear-gradient(left, #FF8400, #FF6600);
-    /* Safari 5.1 - 6.0 */
-    background: -o-linear-gradient(right, #FF8400, #FF6600);
-    /* Opera 11.1 - 12.0 */
-    background: -moz-linear-gradient(right, #FF8400, #FF6600);
-    /* Firefox 3.6 - 15 */
-    background: linear-gradient(to right, #FF8400, #FF6600);
-    /* 标准的语法 */
-    -moz-box-shadow: 0 0 10px #FF6600;
-    /* 老的 Firefox */
-    box-shadow: 0 0 10px #FF6600;
-    border-radius: 20px;
-    position: absolute;
-    left: 50%;
-    margin-left: -6.75rem;
-    top: 17rem;
-    color: #ffffff;
-}
-.home .anniversary_close {
-    background: none;
-    position: absolute;
-    top: 17%;
-    right: 2rem;
-    z-index: 5000;
-    font-size: 1.2rem;
-    width: 1.5rem;
-    height: 1.5rem;
-    line-height: 1.5rem;
-    text-align: center;
-    color: #ffffff;
-    border-radius: 50%;
-    border: 1px solid #ffffff;
+    margin-top: .5rem;
+    background-color: #ffffff;
 }

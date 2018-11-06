@@ -12,7 +12,7 @@
             <div class="claimsList-sortitem" id="claimsListSortDefault" data-type="PRIORITY" data-flag="default">
                 <div class="claimsList-sortitem-box">
                     <span class="claimsList-sort-base claimsList-sort1" data-flag="default"></span>
-                    <span data-flag="default">默认</span>
+                     <span data-flag="default">默认</span>
                 </div>
             </div>
             <div class="claimsList-sortitem" id="claimsListSortRate" data-type="ANNUAL_RATE" data-flag="down">
@@ -202,7 +202,6 @@ export default {
 @import url("./investFinancing");
 @import url("../../assets/js/mescroll.min.css");
 
-.icon-arrowdown {
-}
+
 </style>
 

@@ -1,5 +1,6 @@
 const home = r => require.ensure([], () => r(require('../page/home/home')), 'home')
 const investFinancing = r => require.ensure([], () => r(require('../page/investFinancing/investFinancing')), 'investFinancing')
+const accountOverview = r => require.ensure([], () => r(require('../page/accountOverview/accountOverview')), 'accountOverview')
 /* 
     底部tab选中
     bottom: home  -->  精心优选
@@ -31,6 +32,16 @@ let routesArray = [{
         index: 2
     },
     component: investFinancing
+}, {
+    path: '/accountOverview',
+    name: 'accountOverview',
+    meta: {
+        name: '我的账户',
+        bottom: 'accountOverview',
+        isShow: true,
+        index: 3
+    },
+    component: accountOverview
 }]
 
 export default routesArray

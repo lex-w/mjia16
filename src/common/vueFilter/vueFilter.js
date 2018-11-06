@@ -4,11 +4,11 @@ import * as util from '../js/util'
  * 格式化字符串
  * 字符串截取，默认截取18位
  */
-Vue.filter('formatTitle', function (value, maxwidth) {
-	maxwidth = maxwidth||18;
+Vue.filter('formatTitle', function (value, maxWidth) {
+	maxWidth = maxWidth||18;
 	value = value||"";
-	if(value.length>0 && value.length > maxwidth){
-		value =  value.substring(0,maxwidth)+'...';
+	if(value.length>0 && value.length > maxWidth){
+		value =  value.substring(0,maxWidth)+'...';
 	}
 	util.print();
 	return value;
@@ -16,7 +16,7 @@ Vue.filter('formatTitle', function (value, maxwidth) {
 
 /**
  将数值四舍五入后格式化.
- @param num 数值(Number或者String)
+ @param num 数值(Number 或者 String)
  @param cent 要保留的小数位(Number)
  @param isThousand 是否需要千分位 0:不需要,1:需要(数值类型);
  @return 格式的字符串,如'1,234,567.45'

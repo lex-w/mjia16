@@ -6,15 +6,15 @@ export function print(){
 * @params key			名字
 * @params value			值
 * @params path			路径
-* @params expiredays	存取的时间
+* @params expireDays	存取的时间
 */
-export function setCookie (key, value, path, expiredays) {
+export function setCookie (key, value, path, expireDays) {
 	if (!key) { return console.warn("key值为空");};
 	let extDate = new Date();
 	path = 'path=' + ( path || '') +'/;';
-	extDate.setDate(extDate.getDate() + (expiredays || 0));
-	expiredays = extDate.toGMTString();
-	document.cookie = key.trim() + '=' + value + ';' + path + expiredays;
+	extDate.setDate(extDate.getDate() + (expireDays || 0));
+	expireDays = extDate.toGMTString();
+	document.cookie = key.trim() + '=' + value + ';' + path + expireDays;
 };
 
 export function setLocalSt (key, value) {
@@ -141,7 +141,7 @@ export function broswer () {//检测浏览器内核--返回的是两个key，nam
             _broswer.version = parseFloat(navigator.appVersion);
         } else {
             var reOperaVersion = new RegExp("Opera (\\d+.\\d+)");
-            //使用正则表达式的test方法测试并将版本号保存在RegExp.$1中
+            //使用正则表达式的 test 方法测试并将版本号保存在RegExp.$1中
             reOperaVersion.test(sUserAgent);
             _broswer.version = parseFloat(RegExp['$1']);
         }
