@@ -1,46 +1,7 @@
 <template>
     <div class="home">
-        <swiper :list="topBanner" class="home-banner" loop auto dots-position="center" height="7.5rem"></swiper>
-        <card class="marginTop0">
-            <div slot="content" class="home-header">
-                <div class="vux-1px-r front-14">
-                    36.37亿
-                    <br>
-                    <span class="front-12">累计兑付金额</span>
-                </div>
-                <div class="vux-1px-r front-14">
-                    16196.03万元
-                    <br>
-                    <span class="front-12">为出借人赚取</span>
-                </div>
-                <div class="front-14">
-                    1052天
-                    <br>
-                    <span class="front-12">平台运营时间</span>
-                </div>
-            </div>
-        </card>
-        <card>
-            <div slot="content" class="home-topnav">
-                <div class="nav-item">
-                    <i class="one"></i>
-                    <p class="front-14 home-topnav-name">我的优惠</p>
-                </div>
-                <div class="nav-item">
-                    <i class="two"></i>
-                    <p class="front-14 home-topnav-name">邀请好友</p>
-                </div>
-                <div class="nav-item">
-                    <i class="three"></i>
-                    <p class="front-14 home-topnav-name">信息披露</p>
-                </div>
-                <div class="nav-item">
-                    <i class="four"></i>
-                    <p class="front-14 home-topnav-name">安全保障</p>
-                </div>
-            </div>
-        </card>
-
+        <!-- 头部样式 -->
+        <swipe-title />
         <div class="home-newobj">
             <div class="front-16 home-newobj-titel">新手专享_T2018108期</div>
             <div class="home-newobj-tag">
@@ -248,7 +209,8 @@
 </template>
 
 <script>
-import { Swiper, Card, XCircle } from "vux";
+import { Card, XCircle } from "vux";
+import swipeTitle from "./swipeTitle.vue";
 import { carousel } from "../../api/apiUms";
 export default {
   name: "home",
@@ -258,28 +220,15 @@ export default {
     };
   },
   components: {
-    Swiper,
     Card,
-    XCircle
+    XCircle,
+    swipeTitle
   },
   activated() {},
   created() {
-    this.initData();
   },
   methods: {
-    initData() {
-        let that = this
-        let resultList = []
-        carousel().then(function(result) {
-            result.data.forEach(e => {
-                resultList.push({
-                    img: e.type,
-                    url: e.url
-                });
-            });
-            that.topBanner = resultList
-        });
-    }
+   
   }
 };
 </script>
@@ -287,5 +236,4 @@ export default {
 <style lang="less">
 @import '~vux/src/styles/1px.less';
 @import url("./home");
-
 </style>

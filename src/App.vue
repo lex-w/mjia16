@@ -57,7 +57,7 @@ export default {
         console.log('destroyed')
     } */
   watch: {
-    route(to, from) {
+    $route(to, from) {
       let toDepth = to.meta.index;
       let fromDepth = 100;
       if (from.meta.index) {

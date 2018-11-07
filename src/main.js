@@ -1,12 +1,19 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
+// 引入 mint-ui 
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
 import App from './App'
 
 Vue.config.productionTip = false
 
 //引入路由
 import router from './router'
+
+
+
+
 
 // 引入 promise 兼容
 import es6_promise from 'es6-promise'
@@ -21,6 +28,10 @@ import './common/js/common'
 import './common/vueFilter/vueFilter'
 //引入Vuex
 import store from './store/store'
+
+import './assets/less/jiaConfig.less'
+
+Vue.use(MintUI)
 
 /* eslint-disable no-new */
 new Vue({
