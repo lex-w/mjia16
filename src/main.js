@@ -11,10 +11,6 @@ Vue.config.productionTip = false
 //引入路由
 import router from './router'
 
-
-
-
-
 // 引入 promise 兼容
 import es6_promise from 'es6-promise'
 es6_promise.polyfill();
@@ -29,14 +25,13 @@ import './common/vueFilter/vueFilter'
 //引入Vuex
 import store from './store/store'
 
-import './assets/less/jiaConfig.less'
-
 Vue.use(MintUI)
 
 /* eslint-disable no-new */
 new Vue({
   el: '#mjiaapp',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

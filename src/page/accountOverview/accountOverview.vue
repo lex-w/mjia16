@@ -9,8 +9,8 @@
                     </span>
                 </div>
                 <div class="right">
-                    <router-link to="home" class="jia-set"></router-link>
-                    <router-link to="home" class="jia-message"></router-link>
+                    <router-link tag="div" to="home" class="jia-set"></router-link>
+                    <router-link tag="div" to="home" class="jia-message"></router-link>
                 </div>
             </div>
 
@@ -25,7 +25,7 @@
                 </swiper-item>
             </swiper>
 
-            <card>
+            <card class="my-coupons">
                 <div slot="content" class="card-demo-flex card-demo-content01">
                     <div class="vux-1px-r">
                         <span>1130</span>
@@ -45,17 +45,11 @@
                     <div>
                         <span>88</span>
                         <br/>
-                        121212
+                        121212z
                     </div>
                 </div>
             </card>
-
-            <card>
-                <p slot="content" class="card-padding">鞢地方电视台</p>
-            </card>
         </div>
-
-        
     </div>
 </template>
 
@@ -75,6 +69,8 @@ export default {
 @import url("../../assets/less/jiaConfig");
 @import '~vux/src/styles/1px.less';
 .account_top {
+    position: relative;
+    padding-bottom: 30px;
     .bgGradientTopBottom(@colorff6600, #ff3d10);
     .header-wrapper {
         display: flex;
@@ -137,6 +133,16 @@ export default {
             }
         }
     }
+}
+
+.weui-panel.my-coupons {
+    position: absolute;
+    left: 5%;
+    bottom: -30px;
+    width: 90%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: 10px 0;
 }
 
 .card-demo-flex {

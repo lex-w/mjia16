@@ -1,12 +1,6 @@
 <template>
     <div class="swipe-title">
-        <mt-swipe :auto="3000" class="home-banner">
-            <mt-swipe-item v-for="item in topBanner" :key="item.url">
-                <router-link :to="item.url">
-                    <img :src="item.img" alt="">
-                </router-link>
-            </mt-swipe-item>
-        </mt-swipe>
+        <swiper :list="topBanner" dots-position="center" auto class="home-banner" />
         <card class="marginTop0">
             <div slot="content" class="home-header">
                 <div class="vux-1px-r front-14">
@@ -50,38 +44,36 @@
 </template>
 
 <script>
-import { Card } from "vux";
-import { Swipe, SwipeItem } from 'mint-ui';
-import { carousel } from "../../api/apiUms";
+import { Swiper, Card } from 'vux'
+import { carousel } from "../../api/apiUms"
+import { mapState } from "vuex"
 export default {
     name: 'swipe-title',
     data() {
         return {
-            topBanner: [] // 头部banner图
+            // topBanner: [] // 头部banner图
         }
     },
     components: {
         Card,
-        Swipe,
-        SwipeItem
+        Swiper
     },
     created() {
-    this.initData();
+        this.$store.dispatch('Carousel')
+        // this.initData();
+        console.log(this.show)
+        this.status = this.show
     },
     methods: {
         initData() {
-            let that = this
-            let resultList = []
-            carousel().then(function(result) {
-                result.data.forEach(e => {
-                    resultList.push({
-                        img: e.type,
-                        url: e.url
-                    });
-                });
-                that.topBanner = resultList
-            });
+            // 轮播图
+            this.$store.dispatch('Carousel')
         }
+    },
+    computed: {
+        ...mapState({
+            topBanner: state => state.home.topBanner
+        })
     }
 }
 </script>
@@ -100,6 +92,15 @@ export default {
     .mint-swipe-indicator.is-active {
         background: #fff;
         opacity: 1;
+    }
+
+    &.vux-slider > .vux-indicator > a > .vux-icon-dot{
+        width: 8px;
+        height: 8px;
+        border-radius: 4px;
+        &.active{
+            background-color: #fff;
+        }
     }
 }
 
