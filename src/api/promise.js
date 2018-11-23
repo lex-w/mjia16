@@ -1,8 +1,10 @@
 // 该文件 集成 后台请求
 import axios from 'axios'
 import Vue from 'vue'
+import { getCookie } from '../common/js/util'
 
 import { LoadingPlugin, AlertPlugin } from 'vux'
+import { format } from 'util';
 
 Vue.use(LoadingPlugin)
 

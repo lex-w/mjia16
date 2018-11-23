@@ -26,41 +26,115 @@
             </swiper>
 
             <card class="my-coupons">
-                <div slot="content" class="card-demo-flex card-demo-content01">
+                <div slot="content" class="card-coupons-flex">
                     <div class="vux-1px-r">
-                        <span>1130</span>
-                        <br/>
-                        1212
+                        <p>石榴币</p>
+                        <span>1130</span>个
                     </div>
                     <div class="vux-1px-r">
-                        <span>15</span>
-                        <br/>
-                        121212
+                        <p>返现券</p>
+                        <span>15</span>元
                     </div>
                     <div class="vux-1px-r">
-                        <span>0</span>
-                        <br/>
-                        121212
+                        <p>加息券</p>
+                        <span>0</span>张
                     </div>
                     <div>
-                        <span>88</span>
-                        <br/>
-                        121212z
+                        <p>代金券</p>
+                        <span>88</span>元
                     </div>
                 </div>
             </card>
         </div>
+
+        <group class="account_money">
+            <cell>
+                <div slot="title">
+                    <i class="jia-textFolder"></i>
+                    可用余额：847,896.52 >
+                </div>
+                <div slot="child">
+                    <x-button mini>充值</x-button>
+                    <x-button mini type="warn">取现</x-button>
+                </div>
+            </cell>
+        </group>
+
+        <group>
+            <cell is-link value="待收22650.08元">
+                <div slot="title">
+                    <i class="jia-like"></i>
+                    定期优选
+                </div>
+            </cell>
+            <cell is-link value="待收48,952.04元">
+                <div slot="title">
+                    <i class="jia-star"></i>
+                    精选标的
+                </div>
+            </cell>
+            <cell is-link value="0笔转让中">
+                <div slot="title">
+                    <i class="jia-money"></i>
+                    转让变现
+                </div>
+            </cell>
+        </group>
+
+        <group>
+            <cell is-link>
+                <div slot="title">
+                    <i class="jia-blockbell"></i>
+                    热门活动
+                </div>
+            </cell>
+        </group>
+
+        <group>
+            <cell is-link>
+                <div slot="title">
+                    <i class="jia-blackKefu"></i>
+                    客服与反馈
+                </div>
+            </cell>
+        </group>
+
+         <group>
+            <cell is-link>
+                <div slot="title">
+                    <i class="jia-gocalendar"></i>
+                    回款日历
+                </div>
+            </cell>
+        </group>
+
+         <group>
+            <cell is-link>
+                <div slot="title">
+                    <i class="jia-circleMsg"></i>
+                    更多
+                </div>
+            </cell>
+        </group>
     </div>
 </template>
 
 <script>
-import {Swiper, SwiperItem, Card } from 'vux';
+import {Swiper, SwiperItem, Card, Group, Cell, XButton } from 'vux';
 export default {
     name: 'accountOverview',
     components: {
         Swiper,
         SwiperItem,
-        Card
+        Card,
+        Group,
+        Cell,
+        XButton
+    },
+    created() {
+        
+    },
+    methods: {
     }
 }
 </script>
@@ -145,22 +219,37 @@ export default {
     padding: 10px 0;
 }
 
-.card-demo-flex {
-  display: flex;
+.card-coupons-flex {
+    display: flex;
+    & > div {
+        flex: 1;
+        text-align: center;
+        font-size: 14px;
+    }
+    span {
+        color: #f74c31;
+    }
 }
-.card-demo-content01 {
-  padding: 10px 0;
-}
-.card-padding {
-  padding: 15px;
-}
-.card-demo-flex > div {
-  flex: 1;
-  text-align: center;
-  font-size: 12px;
-}
-.card-demo-flex span {
-  color: #f74c31;
+.accountOverview {
+    .weui-btn + .weui-btn {
+        margin-top: 0;
+    }
+    .weui-cells {
+        margin-top: 10px;
+        font-size: 14px;
+        i {
+            margin-right: .1rem;
+            width: .8rem;
+            height: .8rem;
+            vertical-align: top;
+        }
+        .weui-cell {
+            padding: 15px;
+        }
+    }
+    .account_money .weui-cells {
+        margin-top: 40px;
+    }
 }
 </style>
 

@@ -4,17 +4,17 @@
         <card class="marginTop0">
             <div slot="content" class="home-header">
                 <div class="vux-1px-r front-14">
-                    36.37亿
+                    {{ this.tradingData.repaidAmount }}
                     <br>
                     <span class="front-12">累计兑付金额</span>
                 </div>
                 <div class="vux-1px-r front-14">
-                    16196.03万元
+                    {{this.tradingData.onlineRepaidInterest}}元
                     <br>
                     <span class="front-12">为出借人赚取</span>
                 </div>
                 <div class="front-14">
-                    1052天
+                    {{this.tradingData.operationPeriod}}天
                     <br>
                     <span class="front-12">平台运营时间</span>
                 </div>
@@ -34,7 +34,8 @@
                     <i class="three"></i>
                     <p class="front-14 home-topnav-name">信息披露</p>
                 </div>
-                <div class="nav-item">
+                 <img class="js-captcha" style="display: none;" src="http://pc.jia16.com:28088/ums/captcha" alt="验证码">
+                <div class="nav-item" @click="login">
                     <i class="four"></i>
                     <p class="front-14 home-topnav-name">安全保障</p>
                 </div>
@@ -45,13 +46,13 @@
 
 <script>
 import { Swiper, Card } from 'vux'
-import { carousel } from "../../api/apiUms"
 import { mapState } from "vuex"
+import axios from 'axios'
 export default {
     name: 'swipe-title',
     data() {
         return {
-            // topBanner: [] // 头部banner图
+            topBanner: [] // 头部banner图
         }
     },
     components: {
@@ -59,20 +60,19 @@ export default {
         Swiper
     },
     created() {
-        this.$store.dispatch('Carousel')
-        // this.initData();
-        console.log(this.show)
-        this.status = this.show
+        this.initData()
     },
     methods: {
         initData() {
             // 轮播图
             this.$store.dispatch('Carousel')
-        }
+            this.$store.dispatch('TradingData')
+        },
     },
     computed: {
         ...mapState({
-            topBanner: state => state.home.topBanner
+            topBanner: state => state.home.topBanner,
+            tradingData:  state => state.home.tradingData
         })
     }
 }
@@ -93,7 +93,9 @@ export default {
         background: #fff;
         opacity: 1;
     }
-
+    .vux-swiper {
+        height: 300/@fontRemBase !important;
+    }
     &.vux-slider > .vux-indicator > a > .vux-icon-dot{
         width: 8px;
         height: 8px;

@@ -20,6 +20,11 @@ module.exports = {
         // target: 'http://192.168.8.15:28089',
         target: 'http://www.jia16.com',
         changeOrigin: true
+      },
+      '/admin': {
+        // target: 'http://192.168.8.15:28089',
+        target: 'http://pc.jia16.com:28088',
+        changeOrigin: true
       }
     },
 

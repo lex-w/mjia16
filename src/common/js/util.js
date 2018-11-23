@@ -57,19 +57,33 @@ export function delSessionSt (key) {
 	}
 };
 
-export function getCookie (key) {
-	if (!key) {
-		console.warn("key值为空");
-		return ;
-	}
-	let cookie = document.cookie.split(";");
-	const len = cookie.length;
-	for (let i = 0; i < len; i++) {
-		if (key.trim() === cookie[i].split("=")[0]) {
-			return cookie[i].split("=")[1];
-		}
-	}
-};
+// export function getCookie (key) {
+// 	if (!key) {
+// 		console.warn("key值为空");
+// 		return ;
+// 	}
+// 	let cookie = document.cookie.split(";");
+// 	const len = cookie.length;
+// 	for (let i = 0; i < len; i++) {
+// 		if (key.trim() === cookie[i].split("=")[0]) {
+// 			return cookie[i].split("=")[1];
+// 		}
+// 	}
+// };
+
+/**
+ * 获取cookie值
+ * @param name
+ * @returns {null}
+ */
+export const getCookie = function(name) {
+    var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+    if (arr = document.cookie.match(reg)) {
+        return unescape(arr[2]);
+    } else {
+        return null;
+    }
+}
 
 export function getLocalSt (key) {
 	if (!key || !window.localStorage) { 

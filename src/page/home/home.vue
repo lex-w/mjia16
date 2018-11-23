@@ -37,7 +37,7 @@
             <img src="../../assets/images/home/adv.png" alt="" width="100%">
         </div>
 
-        <div class="home-recommend">
+        <!-- <div class="home-recommend">
             <div class="home-recommend-title front-16">
                 <i class="zan"></i>
                 <span>定期优选</span>
@@ -119,7 +119,7 @@
 
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="home-recommend" id="homeRecommend">
             <div class="home-recommend-title front-16">
@@ -156,7 +156,6 @@
                 </div>
             </div>
             <div class="home-recommend-obj">
-
                 <div>
                     <span class="tagPrivite"></span>
                     <span class="front-16 home-recommend-obj-title">慧分期18041903</span>
@@ -211,25 +210,24 @@
 <script>
 import { Card, XCircle } from "vux";
 import swipeTitle from "./swipeTitle.vue";
-import { carousel } from "../../api/apiUms";
 export default {
-  name: "home",
-  data() {
-    return {
-        topBanner: [] // 头部banner图
-    };
-  },
-  components: {
-    Card,
-    XCircle,
-    swipeTitle
-  },
-  activated() {},
-  created() {
-  },
-  methods: {
-   
-  }
+    name: "home",
+    data() {
+        return {
+            status: true,
+            topBanner: [] // 头部banner图
+        };
+    },
+    components: {
+        Card,
+        XCircle,
+        swipeTitle
+    },
+    activated() {},
+    created() {
+    },
+    methods: {
+    }
 };
 </script>
 
