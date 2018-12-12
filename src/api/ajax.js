@@ -13,7 +13,7 @@ const jsonToGet = (data) => {
 }
 
 // 合并参数
-const merage = (params) => {
+const merge = (params) => {
     let config = {
         type: 'GET',
         url: '',
@@ -50,7 +50,7 @@ const merage = (params) => {
 
 const ajax = (config) => {
     // 进行参数合并
-    config = merage(config);
+    config = merge(config);
 
     // 创建ajax对象
     let xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('microsoft.XMLHTTP');
